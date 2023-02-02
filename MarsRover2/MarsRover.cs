@@ -1,6 +1,4 @@
-﻿using MarsRover2.obj;
-
-namespace MarsRover2;
+﻿namespace MarsRover2;
 
 public class MarsRover
 {
@@ -23,7 +21,7 @@ public class MarsRover
                 command.Execute();
             }
             if (singleCommand == 'M')
-              y = Command.Move(y);
+                y = Command.Move(y);
         }
 
         return $"0:{y}:{_directions.GetDirection()}";

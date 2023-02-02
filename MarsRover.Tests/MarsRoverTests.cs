@@ -27,6 +27,15 @@ public class MarsRoverTests
 
         Assert.Equal("0:2:N", marsRover.Execute("MM"));
     }
+    
+    [Theory]
+    [InlineData("0:1:N", "M")]
+    [InlineData("0:2:N", "MM")]
+    public void MoveRoverForward(string expectedResult, string command)
+    {
+        var marsRover = new MarsRover2.MarsRover();
+        Assert.Equal(expectedResult, marsRover.Execute(command));
+    }
 
     [Theory]
     [InlineData("0:0:E", "R")]
