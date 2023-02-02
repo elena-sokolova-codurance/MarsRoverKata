@@ -14,7 +14,7 @@ public class Command
         if (result == -1) {
             return 3;
         }
-        return --turn;
+        return result;
     }
     public static int Move(int y)
     {
