@@ -12,8 +12,11 @@ public abstract class Command
     public abstract void Execute();
     
     
-    public static int Move(int y)
+    public static int Move(int y, char direction)
     {
+        if (direction == 'S'){
+            return --y;
+        }
         return ++y;
     }
 }

@@ -25,7 +25,7 @@ public class MarsRover
                 if (_directions.GetDirection() == 'E')
                     ++x;
                 else
-                    y = Command.Move(y);
+                    y = Command.Move(y, _directions.GetDirection());
         }
 
         return $"{x}:{y}:{_directions.GetDirection()}";

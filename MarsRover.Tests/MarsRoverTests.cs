@@ -55,12 +55,14 @@ public class MarsRoverTests
         Assert.Equal(expectedResult, marsRover.Execute(command));
     }
 
-    [Fact]
-    public void RoverGetMultipleCommand()
+     [Theory]
+    [InlineData("1:0:E", "RM")]
+    [InlineData("0:1:E", "MR")]
+    [InlineData("1:0:S", "MRMRM")]
+    public void RoverGetMultipleCommand(string expectedResult, string command)
     {
         var marsRover = new MarsRover2.MarsRover();
 
-        Assert.Equal("1:0:E", marsRover.Execute("RM"));
-        
+        Assert.Equal(expectedResult, marsRover.Execute(command));
     }
 }
