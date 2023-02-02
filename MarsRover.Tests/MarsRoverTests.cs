@@ -27,4 +27,12 @@ public class MarsRoverTests
 
         Assert.Equal("0:2:N", marsRover.Execute("MM"));
     }
+
+    [Fact]
+    public void RotateRoverToRightOnce()
+    {
+        var marsRover = new MarsRover2.MarsRover();
+
+        Assert.Equal("0:0:E", marsRover.Execute("R"));
+    }
 }
