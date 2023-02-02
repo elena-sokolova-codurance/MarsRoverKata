@@ -8,8 +8,15 @@ public class MarsRoverTests
     public void InitializeRoverStartPosition()
     {
         var marsRover = new MarsRover2.MarsRover();
-        var startPosition = marsRover.Initialize();
-        
-        Assert.Equal("0:0:N", startPosition);
+
+        Assert.Equal("0:0:N",  marsRover.Execute(""));
+    }
+
+    [Fact]
+    public void MoveRoverFrowardOnce()
+    {
+        var marsRover = new MarsRover2.MarsRover();
+
+        Assert.Equal("0:1:N", marsRover.Execute("M"));
     }
 }
