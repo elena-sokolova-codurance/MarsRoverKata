@@ -1,4 +1,6 @@
-﻿namespace MarsRover2;
+﻿using MarsRover2.obj;
+
+namespace MarsRover2;
 
 public class MarsRover
 {
@@ -16,7 +18,10 @@ public class MarsRover
             }
 
             if (singleCommand == 'L')
-              Command.TurnLeft(_directions);
+            {
+                Command command = new TurnLeft(_directions);
+                command.Execute();
+            }
             if (singleCommand == 'M')
               y = Command.Move(y);
         }
