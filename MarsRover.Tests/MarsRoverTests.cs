@@ -12,22 +12,6 @@ public class MarsRoverTests
         Assert.Equal("0:0:N",  marsRover.Execute(""));
     }
 
-    [Fact]
-    public void MoveRoverForwardOnce()
-    {
-        var marsRover = new MarsRover2.MarsRover();
-
-        Assert.Equal("0:1:N", marsRover.Execute("M"));
-    }
-
-    [Fact]
-    public void MoveRoverForwardTwice()
-    {
-        var marsRover = new MarsRover2.MarsRover();
-
-        Assert.Equal("0:2:N", marsRover.Execute("MM"));
-    }
-    
     [Theory]
     [InlineData("0:1:N", "M")]
     [InlineData("0:2:N", "MM")]
@@ -42,6 +26,8 @@ public class MarsRoverTests
     [InlineData("0:0:S", "RR")]
     [InlineData("0:0:W", "RRR")]
     [InlineData("0:0:N", "RRRR")]
+    [InlineData("0:0:E", "RRRRR")]
+    [InlineData("0:0:N", "RRRRRRRR")]
     public void RotateRoverToRight(string expectedResult, string command)
     {
         var marsRover = new MarsRover2.MarsRover();
@@ -67,5 +53,14 @@ public class MarsRoverTests
         var marsRover = new MarsRover2.MarsRover();
 
         Assert.Equal(expectedResult, marsRover.Execute(command));
+    }
+
+    [Fact]
+    public void RoverGetMultipleCommand()
+    {
+        var marsRover = new MarsRover2.MarsRover();
+
+        Assert.Equal("1:0:E", marsRover.Execute("RM"));
+        
     }
 }

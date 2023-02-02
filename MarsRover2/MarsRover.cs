@@ -6,6 +6,7 @@ public class MarsRover
 
     public string Execute(string commands)
     {
+        var x = 0;
         var y = 0;
         foreach (var singleCommand in commands)
         {
@@ -21,9 +22,12 @@ public class MarsRover
                 command.Execute();
             }
             if (singleCommand == 'M')
-                y = Command.Move(y);
+                if (_directions.GetDirection() == 'E')
+                    ++x;
+                else
+                    y = Command.Move(y);
         }
 
-        return $"0:{y}:{_directions.GetDirection()}";
+        return $"{x}:{y}:{_directions.GetDirection()}";
     }
 }
