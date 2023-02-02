@@ -13,10 +13,18 @@ public class MarsRoverTests
     }
 
     [Fact]
-    public void MoveRoverFrowardOnce()
+    public void MoveRoverForwardOnce()
     {
         var marsRover = new MarsRover2.MarsRover();
 
         Assert.Equal("0:1:N", marsRover.Execute("M"));
+    }
+
+    [Fact]
+    public void MoveRoverForwardTwice()
+    {
+        var marsRover = new MarsRover2.MarsRover();
+
+        Assert.Equal("0:2:N", marsRover.Execute("MM"));
     }
 }
