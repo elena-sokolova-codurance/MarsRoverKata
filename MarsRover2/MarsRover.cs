@@ -2,21 +2,25 @@
 
 public class MarsRover
 {
-    private char[] _orientation = new[] { 'N', 'E', 'S', 'W' };
-    public string Execute(string command)
+    private Directions _directions = new();
+
+    public string Execute(string commands)
     {
-        int turn = 0;
         var y = 0;
-        foreach (var singleCommand in command)
+        foreach (var singleCommand in commands)
         {
             if (singleCommand == 'R')
-              turn = Command.TurnRight(turn);
+            {
+                Command command = new TurnRight(_directions);
+                command.Execute();
+            }
+
             if (singleCommand == 'L')
-              turn = Command.TurnLeft(turn);
+              Command.TurnLeft(_directions);
             if (singleCommand == 'M')
               y = Command.Move(y);
         }
 
-        return $"0:{y}:{_orientation[turn]}";
+        return $"0:{y}:{_directions.GetDirection()}";
     }
 }

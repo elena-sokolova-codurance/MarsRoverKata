@@ -1,20 +1,24 @@
 namespace MarsRover2;
 
-public class Command
+public abstract class Command
 {
+    protected Directions _directions;
 
-    public static int TurnRight(int turn)
+    public Command(Directions directions)
     {
-        return ++turn;
+        _directions = directions;
     }
-    public static int TurnLeft(int turn)
-    {
-        int result =  --turn;
 
-        if (result == -1) {
-            return 3;
+    public abstract void Execute();
+    
+    
+    public static void TurnLeft(Directions directions)
+    {
+        --directions.CurrentDirection;
+
+        if (directions.CurrentDirection == -1) {
+            directions.CurrentDirection = 3;
         }
-        return result;
     }
     public static int Move(int y)
     {
