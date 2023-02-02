@@ -11,6 +11,8 @@ public class MarsRover
         {
             if (singleCommand == 'R')
               turn = Command.TurnRight(turn);
+            if (singleCommand == 'L')
+              turn = Command.TurnLeft(turn);
             if (singleCommand == 'M')
               y = Command.Move(y);
         }
